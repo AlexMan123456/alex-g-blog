@@ -2,6 +2,7 @@
 import Footer from "../components/Footer.astro"
 import "../styles/index.css"
 import Header from "../components/Header.astro"
+import BaseLayout from "../layouts/BaseLayout.astro"
 const pageTitle = "About Me"
 
 const identity = {
@@ -18,13 +19,9 @@ const textCase = "uppercase"
 ---
 
 <html lang="en">
-	<head>
-		<meta charset="utf-8" />
-		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-		<meta name="viewport" content="width=device-width" />
-		<meta name="generator" content={Astro.generator} />
-		<title>{pageTitle}</title>
-		<style define:vars={{skillColour, fontWeight, textCase}}>
+
+	<BaseLayout pageTitle={pageTitle}>
+		<style is:global define:vars={{skillColour, fontWeight, textCase}}>
 			h1 {
 				color: purple;
 				font-size: 4rem;
@@ -34,11 +31,7 @@ const textCase = "uppercase"
     			font-weight: var(--fontWeight);
 				text-transform: var(--textCase);
 			}
-		  </style>
-	</head>
-	<body>
-        <Header/>
-		<h1>{pageTitle}</h1>
+		</style>
         <p>Here are a few facts about me:</p>
 			<ul>
 				<li>My name is {identity.firstName}.</li>
@@ -51,9 +44,5 @@ const textCase = "uppercase"
 			<ul>
 				{skills.map((skill) => <li class="skill">{skill}</li>)}
 			</ul>
-			<Footer/>
-		<script>
-			import "../scripts/menu.js"
-		</script>
-	</body>
+	</BaseLayout>
 </html>
