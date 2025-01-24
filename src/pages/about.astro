@@ -20,7 +20,7 @@ const textCase = "uppercase"
 
 <html lang="en">
 
-	<BaseLayout pageTitle={pageTitle}>
+	<BaseLayout>
 		<style is:global define:vars={{skillColour, fontWeight, textCase}}>
 			h1 {
 				color: purple;
@@ -32,6 +32,7 @@ const textCase = "uppercase"
 				text-transform: var(--textCase);
 			}
 		</style>
+		<h1>{pageTitle}</h1>
         <p>Here are a few facts about me:</p>
 			<ul>
 				<li>My name is {identity.firstName}.</li>
